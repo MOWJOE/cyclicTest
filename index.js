@@ -4,8 +4,9 @@
 // app.use(bodyParser.json());
 
 import express from "express";
+const cors = require("cors");
 // import bodyParser from "body-parser";
-
+app.use(cors());
 import { readFile } from "fs/promises";
 const importData = JSON.parse(await readFile("./data.json"));
 
