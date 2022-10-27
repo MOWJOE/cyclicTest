@@ -4,12 +4,17 @@
 // app.use(bodyParser.json());
 
 import express from "express";
+// import { readFile } from "fs/promises";
 // const cors = require("cors");
 import cors from "cors";
 // import bodyParser from "body-parser";
+const info = {
+	name: "Lebron",
+	team: "Lakers",
+	pointsPerGame: 27,
+};
 
-import { readFile } from "fs/promises";
-const importData = JSON.parse(await readFile("./data.json"));
+// const importData = JSON.parse(await readFile("./data.json"));
 
 const app = express();
 app.use(cors());
@@ -20,7 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/players", (req, res) => {
-	res.send(importData);
+	res.send(info);
 });
 
 app.listen(PORT, () => {
