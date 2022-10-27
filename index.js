@@ -4,14 +4,16 @@
 // app.use(bodyParser.json());
 
 import express from "express";
-const cors = require("cors");
+// const cors = require("cors");
+import cors from "cors";
 // import bodyParser from "body-parser";
-app.use(cors());
+
 import { readFile } from "fs/promises";
 const importData = JSON.parse(await readFile("./data.json"));
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+app.use(cors());
+const PORT = 5000;
 app.get("/", (req, res) => {
 	console.log("Test");
 	res.send("hello this is test");
